@@ -9,7 +9,7 @@ const page = () => {
         </h1>
         <p className="text-lg text-gray-700 leading-relaxed">
           BitLinks is a fast, reliable, and user-friendly URL shortener that helps you
-          transform long, messy links into clean and shareable ones. Whether you're a
+          transform long, messy links into clean and shareable ones. Whether your&rsquo;e a
           developer, a marketer, or just someone who wants simple links, BitLinks makes it easy.
         </p>
         <p className="text-lg text-gray-700 leading-relaxed">

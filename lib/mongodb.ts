@@ -9,16 +9,17 @@ if (!uri) {
 let client: MongoClient;
 let clientPromise: Promise<MongoClient>;
 
-declare global {
-  var _mongoClientPromise: Promise<MongoClient> | undefined;
-}
+// Use globalThis for type-safe global caching (no-var workaround)
+const globalWithMongo = globalThis as typeof globalThis & {
+  _mongoClientPromise?: Promise<MongoClient>;
+};
 
 if (process.env.NODE_ENV === "development") {
-  if (!global._mongoClientPromise) {
+  if (!globalWithMongo._mongoClientPromise) {
     client = new MongoClient(uri);
-    global._mongoClientPromise = client.connect();
+    globalWithMongo._mongoClientPromise = client.connect();
   }
-  clientPromise = global._mongoClientPromise;
+  clientPromise = globalWithMongo._mongoClientPromise!;
 } else {
   client = new MongoClient(uri);
   clientPromise = client.connect();

@@ -7,11 +7,11 @@ const ContactPage = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("")
   const [error, setError] = useState("")
-  const [success, setSuccess] = useState("");
+  // const [success, setSuccess] = useState("");
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
-    setSuccess("");
+    // setSuccess("");
 
     if (name.length === 0 || email.length === 0 || message.length === 0) {
       setError("Please fill in all fields.");
@@ -59,7 +59,7 @@ const ContactPage = () => {
       <section className="w-full max-w-3xl bg-white p-8 rounded-xl shadow-lg space-y-6">
         <h1 className="text-4xl font-bold text-center text-[#033f47]">Contact Us</h1>
         <p className="text-center text-gray-600 text-lg">
-          Got a question, feedback, or just want to say hello? We'd love to hear from you.
+          Got a question, feedback, or just want to say hello? We&rsquo;d love to hear from you.
         </p>
 
         <form className="space-y-5" onSubmit={handleSubmit}>

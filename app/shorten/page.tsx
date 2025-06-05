@@ -18,6 +18,7 @@ const Page = () => {
     try {
       new URL(oldURL)
     } catch (error) {
+      console.log(error)
       setError("Invalid original URL format.");
       return;
     }
