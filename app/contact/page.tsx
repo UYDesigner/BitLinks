@@ -7,20 +7,24 @@ const ContactPage = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("")
   const [error, setError] = useState("")
+  const [loading, setLoading] = useState(false);
   // const [success, setSuccess] = useState("");
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
+    setLoading(true)
     // setSuccess("");
 
     if (name.length === 0 || email.length === 0 || message.length === 0) {
       setError("Please fill in all fields.");
+      setLoading(false)
       return;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       setError("Please enter a valid email address.");
+      setLoading(false)
       return;
     }
 
@@ -53,8 +57,17 @@ const ContactPage = () => {
       setError("Something went wrong. Try again later.");
       return;
     }
+    finally{
+      setLoading(false)
+    }
   }
   return (
+    <>
+    {loading && (
+        <div className="fixed inset-0 bg-[#2f2d2d87] bg-opacity-40 z-50 flex items-center justify-center">
+          <div className="w-12 h-12 border-4 border-white border-t-blue-500 rounded-full animate-spin"></div>
+        </div>
+      )}
     <main className="h-[90vh] bg-[#f9fafb] flex items-center justify-center px-4 py-12">
       <section className="w-full max-w-3xl bg-white p-8 rounded-xl shadow-lg space-y-6">
         <h1 className="text-4xl font-bold text-center text-[#033f47]">Contact Us</h1>
@@ -126,6 +139,7 @@ const ContactPage = () => {
         </p>
       </section>
     </main>
+    </>
   );
 };
 

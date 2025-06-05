@@ -20,7 +20,7 @@ export default function Home() {
           <p className="text-base sm:text-lg text-gray-700">
             We are the most straightforward and reliable URL shortener in the world. We understand the needs of users and provide seamless performance without any hassle.
           </p>
-          <div className="text-[#06444d] font-semibold text-[21px] sm:text-[27px] h-[40px] sm:h-[50px] animate-pulse">
+          <div className="text-[#06444d] font-semibold text-[21px] sm:text-[21px] h-[40px] sm:h-[50px] animate-pulse">
             <span className="">
               <Typewriter
                 words={["Privacy Focused", "URL Shortener", "Fast & Easy", "Link Optimizer", "BitLinks Tool"]}
